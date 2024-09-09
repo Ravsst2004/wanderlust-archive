@@ -1,7 +1,7 @@
 import { IoMdMenu } from "react-icons/io";
 import logo from "../../assets/Wanderlust Archive.png";
 import MobileMenu from "./MobileMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DesktopMenu from "./DesktopMenu";
 
 interface LinkMenuItem {
@@ -11,6 +11,15 @@ interface LinkMenuItem {
 
 const Navbar = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  });
 
   const linkMenu: LinkMenuItem[] = [
     {
@@ -34,7 +43,9 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`relative flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-transparent`}
+        className={`w-full fixed z-20 flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 xl:px-40 transition-colors ease-in duration-300 ${
+          isScrolled ? "bg-white" : "bg-white md:bg-transparent"
+        }`}
       >
         <div className="flex items-center gap-2">
           <img
@@ -42,7 +53,11 @@ const Navbar = () => {
             alt="Wanderlust Archive Logo"
             className="w-8 md:w-12"
           />
-          <h1 className="text-base md:text-xl lg:text-2xl">
+          <h1
+            className={`text-base md:text-xl lg:text-2xl ${
+              isScrolled ? "text-black" : "md:text-white"
+            }`}
+          >
             Wanderlust Archive
           </h1>
         </div>
@@ -54,7 +69,7 @@ const Navbar = () => {
             <IoMdMenu />
           </div>
 
-          <DesktopMenu linkMenu={linkMenu} />
+          <DesktopMenu linkMenu={linkMenu} isScrolled={isScrolled} />
         </div>
       </nav>
       <div className="border-b-2"></div>

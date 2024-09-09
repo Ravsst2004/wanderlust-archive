@@ -16,7 +16,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ linkMenu, isOpen }) => {
   return (
     <>
       <menu
-        className={`flex md:hidden flex-col gap-4 bg-white transition-all duration-300 overflow-hidden ${
+        className={`flex md:hidden flex-col gap-4 bg-white transition-all duration-300 overflow-hidden fixed top-16 z-10 w-full ${
           isOpen
             ? "scale-y-100 opacity-100 px-6 py-4"
             : "scale-y-0 opacity-0 p-0"
