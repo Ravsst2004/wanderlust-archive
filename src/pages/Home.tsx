@@ -11,8 +11,10 @@ import SliderDefault from "@/components/ui/Carousel/SliderDefault";
 import destinationsData from "../data/destination.json";
 
 const Home = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const refGuide = useRef(null);
+  const refDestination = useRef(null);
+  const isInViewGuide = useInView(refGuide, { once: true });
+  const isInViewDestination = useInView(refDestination, { once: true });
 
   const guideImageList = [guideImage1, guideImage2, guideImage3];
 
@@ -66,11 +68,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-fit py-20 px-4 md:px-10 lg:px-28">
+      <section
+        className="w-full h-fit py-20 px-4 md:px-10 lg:px-28"
+        ref={refGuide}
+      >
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 200 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 200 }}
+          animate={{
+            opacity: isInViewGuide ? 1 : 0,
+            y: isInViewGuide ? 0 : 200,
+          }}
           transition={{ duration: 1 }}
           className="flex flex-col justify-center items-center text-center gap-2"
         >
@@ -89,7 +96,7 @@ const Home = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-hidden " ref={ref}>
+        <div className="overflow-hidden">
           <SliderDefault>
             {guideImageList.map((image, index) => (
               <div
@@ -98,14 +105,14 @@ const Home = () => {
               >
                 <motion.div
                   initial={{ x: -300 }}
-                  animate={{ x: isInView ? 0 : -300 }}
+                  animate={{ x: isInViewGuide ? 0 : -300 }}
                   transition={{ duration: 1.5 }}
                   className="absolute w-[90%] md:w-[80%] lg:w-[70%] mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
                   style={{ backgroundImage: `url('${image}')` }}
                 />
                 <motion.img
                   initial={{ x: 300 }}
-                  animate={{ x: isInView ? 0 : 300 }}
+                  animate={{ x: isInViewGuide ? 0 : 300 }}
                   transition={{ duration: 1.5 }}
                   src={image}
                   alt="Destination"
@@ -117,8 +124,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="px-4 md:px-10 lg:px-28">
-        <div className="flex flex-col justify-center items-center text-center gap-2">
+      <section className="px-4 md:px-10 lg:px-28" ref={refDestination}>
+        <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          animate={{
+            opacity: isInViewDestination ? 1 : 0,
+            y: isInViewDestination ? 0 : 200,
+          }}
+          transition={{ duration: 1 }}
+          className="flex flex-col justify-center items-center text-center gap-2"
+        >
           <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
             for you
           </h1>
@@ -133,11 +148,17 @@ const Home = () => {
             city filled with wonders, each destination offers a touch of magic
             waiting to be experienced.
           </p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
-          {destinationsData.map((destination) => {
+          {destinationsData.map((destination, index) => {
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 1 ? 200 : -200 }}
+                animate={{
+                  opacity: 1,
+                  x: isInViewDestination ? 0 : index % 2 === 1 ? 200 : -200,
+                }}
+                transition={{ duration: 1 }}
                 key={destination.id}
                 className="relative group cursor-pointer"
               >
@@ -152,7 +173,7 @@ const Home = () => {
                   alt={destination.name}
                   className="rounded-lg cursor-pointer"
                 />
-              </div>
+              </motion.div>
             );
           })}
         </div>
