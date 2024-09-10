@@ -1,19 +1,19 @@
 import Layout from "../components/layouts/Layout";
 import destinationHomeImage1 from "../assets/image/destination 1.jpg";
-import destinationHomeImage2 from "../assets/image/destination 2.jpg";
+import guideImage1 from "../assets/image/destination 2.jpg";
+import guideImage2 from "../assets/image/destination 3.jpg";
+import guideImage3 from "../assets/image/destination 4.jpg";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import SliderDefault from "@/components/ui/Carousel/SliderDefault";
 
 const Home = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-  });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-  const variants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const guideImageList = [guideImage1, guideImage2, guideImage3];
 
   return (
     <Layout>
@@ -65,12 +65,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-fit py-20 px-4" ref={ref}>
+      <section className="w-full h-fit py-20 px-4">
         <motion.div
-          initial="hidden"
-          animate={inView && "visible"}
+          ref={ref}
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 200 }}
           transition={{ duration: 1 }}
-          variants={variants}
           className="flex flex-col justify-center items-center text-center gap-2"
         >
           <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
@@ -86,18 +86,34 @@ const Home = () => {
             Whether you’re seeking serene escapes or thrilling journeys, we
             guide you to the places where unforgettable experiences await.
           </p>
-          <div className="relative flex flex-col items-center justify-center mt-10">
-            <div
-              className="absolute w-[90%] md:w-3/4 mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
-              style={{ backgroundImage: `url('${destinationHomeImage2}')` }}
-            ></div>
-            <img
-              src={destinationHomeImage2}
-              alt="Destination"
-              className="w-[90%] md:w-3/4 rounded-md"
-            />
-          </div>
         </motion.div>
+
+        <div className="overflow-hidden" ref={ref}>
+          <SliderDefault>
+            {guideImageList.map((image, index) => (
+              <div
+                key={index}
+                className="relative flex items-center justify-center mt-10 "
+              >
+                <motion.div
+                  initial={{ x: -300 }}
+                  animate={{ x: isInView ? 0 : -300 }}
+                  transition={{ duration: 1.5 }}
+                  className="absolute w-[90%] md:w-3/4 mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
+                  style={{ backgroundImage: `url('${image}')` }}
+                />
+                <motion.img
+                  initial={{ x: 300 }}
+                  animate={{ x: isInView ? 0 : 300 }}
+                  transition={{ duration: 1.5 }}
+                  src={image}
+                  alt="Destination"
+                  className="w-[90%] md:w-3/4 mx-auto rounded-md cursor-pointer"
+                />
+              </div>
+            ))}
+          </SliderDefault>
+        </div>
       </section>
     </Layout>
   );
