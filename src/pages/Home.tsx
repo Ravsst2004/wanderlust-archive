@@ -1,13 +1,14 @@
 import Layout from "../components/layouts/Layout";
-import destinationHomeImage1 from "../assets/image/destination 1.jpg";
-import guideImage1 from "../assets/image/destination 2.jpg";
-import guideImage2 from "../assets/image/destination 3.jpg";
-import guideImage3 from "../assets/image/destination 4.jpg";
+import destinationHomeImage from "../assets/image/mountain-rill.jpg";
+import guideImage1 from "../assets/image/destination 3.jpg";
+import guideImage2 from "../assets/image/caribbean-beach.jpg";
+import guideImage3 from "../assets/image/great-barrier-reef.jpg";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import SliderDefault from "@/components/ui/Carousel/SliderDefault";
+import destinationsData from "../data/destination.json";
 
 const Home = () => {
   const ref = useRef(null);
@@ -20,7 +21,7 @@ const Home = () => {
       <section
         className="relative min-h-screen bg-cover bg-no-repeat bg-center flex items-center justify-center"
         style={{
-          backgroundImage: `url('${destinationHomeImage1}')`,
+          backgroundImage: `url('${destinationHomeImage}')`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-35"></div>
@@ -65,7 +66,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-fit py-20 px-4">
+      <section className="w-full h-fit py-20 px-4 md:px-10 lg:px-28">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 200 }}
@@ -74,7 +75,7 @@ const Home = () => {
           className="flex flex-col justify-center items-center text-center gap-2"
         >
           <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
-            We are
+            we are
           </h1>
           <h2 className="text-2xl md:text-3xl lg:text-4xl">
             a guide to magical places
@@ -88,18 +89,18 @@ const Home = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-hidden" ref={ref}>
+        <div className="overflow-hidden " ref={ref}>
           <SliderDefault>
             {guideImageList.map((image, index) => (
               <div
                 key={index}
-                className="relative flex items-center justify-center mt-10 "
+                className="relative flex items-center justify-center mt-6 active:border-none"
               >
                 <motion.div
                   initial={{ x: -300 }}
                   animate={{ x: isInView ? 0 : -300 }}
                   transition={{ duration: 1.5 }}
-                  className="absolute w-[90%] md:w-3/4 mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
+                  className="absolute w-[90%] md:w-[80%] lg:w-[70%] mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
                   style={{ backgroundImage: `url('${image}')` }}
                 />
                 <motion.img
@@ -108,11 +109,52 @@ const Home = () => {
                   transition={{ duration: 1.5 }}
                   src={image}
                   alt="Destination"
-                  className="w-[90%] md:w-3/4 mx-auto rounded-md cursor-pointer"
+                  className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto rounded-md cursor-pointer"
                 />
               </div>
             ))}
           </SliderDefault>
+        </div>
+      </section>
+
+      <section className="px-4 md:px-10 lg:px-28">
+        <div className="flex flex-col justify-center items-center text-center gap-2">
+          <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
+            for you
+          </h1>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl">
+            a magical destinations
+          </h2>
+          <hr className="w-1/3 h-[0.1rem] bg-gradient-to-r my-2 from-orange-600 to-black" />{" "}
+          <p className="md:text-lg xl:max-w-5xl opacity-80">
+            Step into a world where dreams come true. From enchanting landscapes
+            to hidden paradises, explore places that captivate your imagination
+            and leave you in awe. Whether it's a peaceful retreat or a bustling
+            city filled with wonders, each destination offers a touch of magic
+            waiting to be experienced.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
+          {destinationsData.map((destination) => {
+            return (
+              <div
+                key={destination.id}
+                className="relative group cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-0" />
+                <h1
+                  className={`absolute inset-0 flex items-center justify-center text-white text-2xl font-bold group-hover:scale-0 transition-transform ease-in duration-200`}
+                >
+                  {destination.name}
+                </h1>
+                <img
+                  src={destination.image}
+                  alt={destination.name}
+                  className="rounded-lg cursor-pointer"
+                />
+              </div>
+            );
+          })}
         </div>
       </section>
     </Layout>

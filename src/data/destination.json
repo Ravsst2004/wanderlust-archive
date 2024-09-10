@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "African Savanna",
+    "image": "/src/assets/image/african-savanna.jpg",
+    "description": "Experience the vast open plains and rich wildlife of the African Savanna, where nature thrives in its most raw form."
+  },
+  {
+    "id": 2,
+    "name": "Amazon River",
+    "image": "/src/assets/image/amazon-river.jpg",
+    "description": "Venture into the heart of the Amazon, the world's largest river, surrounded by lush rainforests and exotic wildlife."
+  },
+  {
+    "id": 3,
+    "name": "Caribbean Beach",
+    "image": "/src/assets/image/caribbean-beach.jpg",
+    "description": "Relax on the pristine white sands of the Caribbean beaches, where turquoise waters meet tranquil shores."
+  },
+  {
+    "id": 4,
+    "name": "Desert Dunes",
+    "image": "/src/assets/image/desert-dunes.jpg",
+    "description": "Explore the mesmerizing beauty of rolling desert dunes, where the landscape stretches endlessly under the hot sun."
+  },
+  {
+    "id": 5,
+    "name": "Forest Waterfall",
+    "image": "/src/assets/image/forest-waterfall.jpg",
+    "description": "Discover the hidden beauty of cascading waterfalls deep within lush green forests, offering a serene escape."
+  },
+  {
+    "id": 6,
+    "name": "Grand Canyon",
+    "image": "/src/assets/image/grand-canyon.jpg",
+    "description": "Marvel at the breathtaking sight of the Grand Canyon, a natural wonder carved by the Colorado River over millennia."
+  },
+  {
+    "id": 7,
+    "name": "Great Barrier Reef",
+    "image": "/src/assets/image/great-barrier-reef.jpg",
+    "description": "Dive into the vibrant underwater world of the Great Barrier Reef, the largest coral reef system teeming with marine life."
+  },
+  {
+    "id": 8,
+    "name": "Japanese Temple",
+    "image": "/src/assets/image/japanese-temple.jpg",
+    "description": "Step into the tranquility of ancient Japanese temples, surrounded by serene gardens and a rich cultural history."
+  },
+  {
+    "id": 9,
+    "name": "Kerala Backwaters",
+    "image": "/src/assets/image/kerala-backwaters.jpg",
+    "description": "Sail through the peaceful Kerala backwaters, where lush landscapes meet a network of canals and rivers."
+  },
+  {
+    "id": 10,
+    "name": "Machu Picchu",
+    "image": "/src/assets/image/machu-picchu.jpg",
+    "description": "Journey to Machu Picchu, the ancient Incan city perched high in the Andes, shrouded in mystery and beauty."
+  },
+  {
+    "id": 11,
+    "name": "Majestic Mountains",
+    "image": "/src/assets/image/majestic-mountains.jpg",
+    "description": "Experience the awe-inspiring beauty of majestic mountain ranges, where towering peaks meet the sky."
+  },
+  {
+    "id": 12,
+    "name": "Northern Lights",
+    "image": "/src/assets/image/northern-lights.jpg",
+    "description": "Witness the magical display of the Northern Lights, a natural phenomenon that lights up the Arctic skies."
+  },
+  {
+    "id": 13,
+    "name": "Parisian Streets",
+    "image": "/src/assets/image/parisian-streets.jpg",
+    "description": "Stroll through the romantic streets of Paris, where historic architecture meets modern charm."
+  },
+  {
+    "id": 14,
+    "name": "Rainforest",
+    "image": "/src/assets/image/rainforest.jpg",
+    "description": "Immerse yourself in the lush greenery of tropical rainforests, home to diverse wildlife and exotic plants."
+  },
+  {
+    "id": 15,
+    "name": "Ruins",
+    "image": "/src/assets/image/ruins.jpg",
+    "description": "Explore ancient ruins, remnants of civilizations long past, offering a glimpse into history and mystery."
+  },
+  {
+    "id": 16,
+    "name": "Serene Coastal",
+    "image": "/src/assets/image/serene-coastal.jpg",
+    "description": "Relax by the serene coastal landscapes, where gentle waves meet peaceful shores."
+  },
+  {
+    "id": 17,
+    "name": "Taj Mahal",
+    "image": "/src/assets/image/taj-mahal.jpg",
+    "description": "Marvel at the Taj Mahal, a symbol of eternal love and one of the most iconic monuments in the world."
+  },
+  {
+    "id": 18,
+    "name": "Venetian Canals",
+    "image": "/src/assets/image/venetian-canals.jpg",
+    "description": "Glide through the romantic Venetian canals, a city built on water with timeless beauty."
+  }
+]
