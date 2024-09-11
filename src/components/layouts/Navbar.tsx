@@ -13,6 +13,9 @@ const Navbar = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const currentPath = window.location.pathname;
+  const lastPath = currentPath.split("/").pop();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
@@ -31,20 +34,23 @@ const Navbar = () => {
       link: "/about",
     },
     {
-      name: "Services",
-      link: "/services",
+      name: "Destinations",
+      link: "/destinations",
     },
     {
       name: "Contact Us",
       link: "/contact",
     },
   ];
+  const blockLink = ["/destinations", `/destinations/${lastPath}`];
 
   return (
     <>
       <nav
         className={`w-full fixed z-20 flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 xl:px-40 transition-colors ease-in duration-300 ${
-          isScrolled ? "bg-white" : "bg-white md:bg-transparent"
+          isScrolled || blockLink.includes(currentPath)
+            ? "bg-white"
+            : "bg-white md:bg-transparent"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -55,7 +61,9 @@ const Navbar = () => {
           />
           <h1
             className={`text-base md:text-xl lg:text-2xl ${
-              isScrolled ? "text-black" : "md:text-white"
+              isScrolled || blockLink.includes(currentPath)
+                ? "text-black"
+                : "md:text-white"
             }`}
           >
             Wanderlust Archive
@@ -64,12 +72,16 @@ const Navbar = () => {
         <div className="text-2xl cursor-pointer">
           <div
             onClick={() => setMenuIsOpen(!menuIsOpen)}
-            className="border-2 p-1 rounded border-white md:hidden"
+            className="border-2 p-1 rounded border-white lg:hidden"
           >
             <IoMdMenu />
           </div>
 
-          <DesktopMenu linkMenu={linkMenu} isScrolled={isScrolled} />
+          <DesktopMenu
+            linkMenu={linkMenu}
+            isScrolled={isScrolled}
+            blockLink={blockLink}
+          />
         </div>
       </nav>
       <div className="border-b-2"></div>

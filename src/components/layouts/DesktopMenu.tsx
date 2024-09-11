@@ -3,14 +3,22 @@ import { Link } from "react-router-dom";
 type MobileMenuProps = {
   linkMenu: { name: string; link: string }[];
   isScrolled: boolean;
+  blockLink: string[];
 };
 
-const DesktopMenu: React.FC<MobileMenuProps> = ({ linkMenu, isScrolled }) => {
+const DesktopMenu: React.FC<MobileMenuProps> = ({
+  linkMenu,
+  isScrolled,
+  blockLink,
+}) => {
   const currentPath = window.location.pathname;
-  const scrolledClass = isScrolled ? "text-black border-black" : "md:text-white";
+  const scrolledClass =
+    isScrolled || blockLink.includes(currentPath)
+      ? "text-black border-black"
+      : "md:text-white";
 
   return (
-    <menu className="hidden md:flex items-center gap-x-6 ">
+    <menu className="hidden lg:flex items-center gap-x-6 ">
       {linkMenu.map((item) => {
         const currentPathClass = currentPath === item.link ? "border-b-2" : "";
         return (
