@@ -30,7 +30,7 @@ const Destinations = () => {
                 >
                   <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-0" />
                   <h1
-                    className={`absolute inset-0 flex items-center justify-center text-white text-2xl font-bold group-hover:scale-0 transition-transform ease-in duration-200`}
+                    className={`absolute text-lg md:text-2xl inset-0 flex items-center justify-center text-white font-bold group-hover:scale-0 transition-transform ease-in duration-200`}
                   >
                     {destination.name}
                   </h1>

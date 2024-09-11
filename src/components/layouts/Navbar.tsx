@@ -3,6 +3,7 @@ import logo from "../../assets/Wanderlust Archive.png";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
 import DesktopMenu from "./DesktopMenu";
+import { Link } from "react-router-dom";
 
 interface LinkMenuItem {
   name: string;
@@ -59,15 +60,17 @@ const Navbar = () => {
             alt="Wanderlust Archive Logo"
             className="w-8 md:w-12"
           />
-          <h1
-            className={`text-base md:text-xl lg:text-2xl ${
-              isScrolled || blockLink.includes(currentPath)
-                ? "text-black"
-                : "md:text-white"
-            }`}
-          >
-            Wanderlust Archive
-          </h1>
+          <Link to="/">
+            <h1
+              className={`text-base md:text-xl lg:text-2xl ${
+                isScrolled || blockLink.includes(currentPath)
+                  ? "text-black"
+                  : "md:text-white"
+              }`}
+            >
+              Wanderlust Archive
+            </h1>
+          </Link>
         </div>
         <div className="text-2xl cursor-pointer">
           <div
