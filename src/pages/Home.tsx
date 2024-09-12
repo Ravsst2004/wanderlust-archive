@@ -10,6 +10,7 @@ import { useRef } from "react";
 import SliderDefault from "@/components/ui/Carousel/SliderDefault";
 import destinationsData from "../data/destination.json";
 import { Link } from "react-router-dom";
+import bgFourthSectionImage from "../assets/image/bg-fourth-section.jpg";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <FirstSection />
       <SecondSection />
       <ThirdSection />
+      <FourthSection />
     </Layout>
   );
 };
@@ -171,17 +173,17 @@ const ThirdSection = () => {
           return (
             <Link to={`/destinations/${destination.id}`} key={destination.id}>
               <motion.div
-                initial={{ opacity: 0, x: index % 2 === 1 ? 200 : -200 }}
+                initial={{ opacity: 0, y: index % 2 === 1 ? 200 : -200 }}
                 animate={{
                   opacity: 1,
-                  x: isInViewDestination ? 0 : index % 2 === 1 ? 200 : -200,
+                  y: isInViewDestination ? 0 : index % 2 === 1 ? 200 : -200,
                 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1.5 }}
                 className="relative group cursor-pointer"
               >
-                <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-black opacity-0 md:opacity-30 group-hover:opacity-0" />
                 <h1
-                  className={`absolute text-lg md:text-2xl inset-0 flex items-center justify-center text-white  font-bold group-hover:scale-0 transition-transform ease-in duration-200`}
+                  className={`hidden md:absolute text-lg md:text-2xl inset-0 md:flex items-center justify-center text-white  font-bold group-hover:scale-0 transition-transform ease-in duration-200`}
                 >
                   {destination.name}
                 </h1>
@@ -190,6 +192,9 @@ const ThirdSection = () => {
                   alt={destination.name}
                   className="rounded-lg cursor-pointer"
                 />
+                <Button className="w-full md:hidden text-lg mt-2 sm:text-xl">
+                  View Details
+                </Button>
               </motion.div>
             </Link>
           );
@@ -199,6 +204,55 @@ const ThirdSection = () => {
         <Link to={"/destinations"}>
           <Button className="w-full md:w-fit text-lg">View More</Button>
         </Link>
+      </div>
+    </section>
+  );
+};
+
+const FourthSection = () => {
+  const refAchiveNumber = useRef(null);
+  const isInView = useInView(refAchiveNumber, { once: true });
+
+  const achiveNumber = [
+    { number: 60, name: "Destinations" },
+    { number: 42, name: "Countries" },
+    { number: 32, name: "Happy Travelers" },
+    { number: 23, name: "Guides" },
+  ];
+
+  return (
+    <section className="py-20 px-4 md:px-10 lg:px-28">
+      <div
+        className="relative min-h-fit bg-cover bg-no-repeat bg-center flex items-center justify-center rounded-md"
+        style={{
+          backgroundImage: `url('${bgFourthSectionImage}')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-40 rounded-md "></div>
+        <div
+          className="relative z-10 flex flex-col md:flex-row justify-center items-center gap-10 lg:gap-32 py-24"
+          ref={refAchiveNumber}
+        >
+          {achiveNumber.map((item, index) => {
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+                animate={{
+                  opacity: isInView ? 1 : 0,
+                  x: isInView ? 0 : index % 2 === 0 ? 100 : -100,
+                }}
+                transition={{ duration: 1.5 }}
+                className="flex flex-col justify-center items-center cursor-default"
+              >
+                <h1 className="text-5xl text-white font-medium">
+                  +{item.number}K
+                </h1>
+                <p className="text-xl text-white font-medium">{item.name}</p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
