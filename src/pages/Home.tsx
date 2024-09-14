@@ -11,6 +11,7 @@ import SliderDefault from "@/components/ui/Carousel/SliderDefault";
 import destinationsData from "../data/destination.json";
 import { Link } from "react-router-dom";
 import bgFourthSectionImage from "../assets/image/bg-fourth-section.jpg";
+import SliderAutoPlay from "@/components/ui/Carousel/SliderAutoPlay";
 
 const Home = () => {
   return (
@@ -113,6 +114,7 @@ const SecondSection = () => {
           {guideImageList.map((image, index) => (
             <div
               key={index}
+              aria-hidden
               className="relative flex items-center justify-center mt-6 active:border-none"
             >
               <motion.div
@@ -211,7 +213,11 @@ const ThirdSection = () => {
 
 const FourthSection = () => {
   const refAchiveNumber = useRef(null);
+  const refBestRecommendation = useRef(null);
   const isInView = useInView(refAchiveNumber, { once: true });
+  const isInViewRecommendation = useInView(refBestRecommendation, {
+    once: true,
+  });
 
   const achiveNumber = [
     { number: 60, name: "Destinations" },
@@ -220,38 +226,131 @@ const FourthSection = () => {
     { number: 23, name: "Guides" },
   ];
 
+  const shuffledDestinations = destinationsData
+    .map((item) => ({ item, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ item }) => item);
+
+  const bestRecommendations = shuffledDestinations.slice(0, 6);
+
   return (
-    <section className="py-20 px-4 md:px-10 lg:px-28">
-      <div
-        className="relative min-h-fit bg-cover bg-no-repeat bg-center flex items-center justify-center rounded-md"
-        style={{
-          backgroundImage: `url('${bgFourthSectionImage}')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-40 rounded-md "></div>
+    <section className="py-20">
+      <div className="relative">
         <div
-          className="relative z-10 flex flex-col md:flex-row justify-center items-center gap-10 lg:gap-32 py-24"
-          ref={refAchiveNumber}
+          className="absolute w-full min-h-fit bg-cover bg-no-repeat bg-center flex items-center justify-center pb-32"
+          style={{
+            backgroundImage: `url('${bgFourthSectionImage}')`,
+          }}
         >
-          {achiveNumber.map((item, index) => {
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
-                animate={{
-                  opacity: isInView ? 1 : 0,
-                  x: isInView ? 0 : index % 2 === 0 ? 100 : -100,
-                }}
-                transition={{ duration: 1.5 }}
-                className="flex flex-col justify-center items-center cursor-default"
-              >
-                <h1 className="text-5xl text-white font-medium">
-                  +{item.number}K
-                </h1>
-                <p className="text-xl text-white font-medium">{item.name}</p>
-              </motion.div>
-            );
-          })}
+          <div className="absolute inset-0 bg-black opacity-40 rounded-md "></div>
+          <div
+            className="relative z-10 flex flex-col md:flex-row justify-center items-center gap-10 lg:gap-32 py-24"
+            ref={refAchiveNumber}
+          >
+            {achiveNumber.map((item, index) => {
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+                  animate={{
+                    opacity: isInView ? 1 : 0,
+                    x: isInView ? 0 : index % 2 === 0 ? 100 : -100,
+                  }}
+                  transition={{ duration: 1.5 }}
+                  className="flex flex-col justify-center items-center cursor-default"
+                >
+                  <h1 className="text-5xl text-white font-medium">
+                    +{item.number}K
+                  </h1>
+                  <p className="text-xl text-white font-medium">{item.name}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div
+          ref={refBestRecommendation}
+          className="absolute w-full mt-[33rem] md:mt-[11rem]"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 200 }}
+            animate={{
+              opacity: isInViewRecommendation ? 1 : 0,
+              y: isInViewRecommendation ? 0 : 200,
+            }}
+            transition={{ duration: 1 }}
+            className="flex flex-col justify-center items-center text-center gap-2 mt-10"
+          >
+            <h1 className="text-2xl md:text-2xl font-semibold tracking-[0.5rem] text-orange-600">
+              our best
+            </h1>
+            <h2 className="text-4xl md:text-3xl lg:text-4xl text-white font-semibold">
+              recommendations
+            </h2>
+            <hr className="w-1/3 h-[0.1rem] bg-gradient-to-r my-2 from-orange-600 to-black" />
+          </motion.div>
+
+          {/* TODO: Style this until it responsive */}
+          <motion.div
+            initial={{ opacity: 0, y: 200 }}
+            animate={{
+              opacity: isInViewRecommendation ? 1 : 0,
+              y: isInViewRecommendation ? 0 : 200,
+            }}
+            transition={{ duration: 1 }}
+            className="lg:hidden"
+          >
+            <SliderAutoPlay>
+              {bestRecommendations.map((destination) => {
+                return (
+                  <div
+                    key={destination.id}
+                    className="flex flex-col items-center justify-center my-4 px-2"
+                  >
+                    <img
+                      src={destination.image}
+                      alt={destination.name}
+                      className="w-[90%] md:w-[80%] mx-auto rounded-md cursor-pointer"
+                    />
+
+                    <Link to={`/destinations/${destination.id}`}>
+                      <p className="w-[90%] md:w-[80%] mx-auto text-lg text-center font-medium bg-slate-400 hover:bg-orange-600 hover:text-white transition-colors ease-linear duration-200 p-2 mt-2 rounded-md">
+                        {destination.name}
+                      </p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </SliderAutoPlay>
+          </motion.div>
+
+          <div className="hidden lg:flex">
+            <div className="overflow-hidden">
+              <SliderAutoPlay slidesToShow={3}>
+                {bestRecommendations.map((destination) => {
+                  return (
+                    <div
+                      key={destination.id}
+                      className="flex flex-col items-center justify-center my-4"
+                    >
+                      <img
+                        src={destination.image}
+                        alt={destination.name}
+                        className="w-[90%] md:w-[80%] mx-auto rounded-md cursor-pointer"
+                      />
+
+                      <Link to={`/destinations/${destination.id}`}>
+                        <p className="w-[90%] md:w-[80%] mx-auto text-lg text-center font-medium bg-slate-400 hover:bg-orange-600 hover:text-white transition-colors ease-linear duration-200 p-2 mt-2 rounded-md">
+                          {destination.name}
+                        </p>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </SliderAutoPlay>
+            </div>
+          </div>
         </div>
       </div>
     </section>

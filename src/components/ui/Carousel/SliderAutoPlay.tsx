@@ -3,13 +3,17 @@ import Slider from "react-slick";
 
 type SliderProps = {
   children: ReactNode;
+  slidesToShow?: number;
 };
 
-const SliderAutoPlay: React.FC<SliderProps> = ({ children }) => {
+const SliderAutoPlay: React.FC<SliderProps> = ({
+  children,
+  slidesToShow = 1,
+}) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
