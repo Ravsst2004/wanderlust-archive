@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
-
 interface LinkMenuItem {
   name: string;
-  link: string;
+  idLink: string;
 }
 
 interface MobileMenuProps {
   linkMenu: LinkMenuItem[];
   isOpen: boolean;
+  setMenuIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ linkMenu, isOpen }) => {
-  const currentPath = window.location.pathname;
-
+const MobileMenu: React.FC<MobileMenuProps> = ({
+  linkMenu,
+  isOpen,
+  setMenuIsOpen,
+}) => {
   return (
     <>
       <menu
@@ -24,17 +25,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ linkMenu, isOpen }) => {
         style={{ transformOrigin: "top" }}
       >
         {linkMenu.map((item) => (
-          <Link key={item.name} to={item.link}>
-            <p
-              className={`text-lg border-b-2 ${
-                currentPath === item.link
-                  ? "text-orange-600 border-orange-600"
-                  : ""
-              }`}
-            >
-              {item.name}
-            </p>
-          </Link>
+          <a
+            key={item.name}
+            href={`#${item.idLink}`}
+            onClick={() => setMenuIsOpen(false)}
+          >
+            <p className={`text-lg border-b-2`}>{item.name}</p>
+          </a>
         ))}
       </menu>
     </>

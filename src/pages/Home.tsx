@@ -1,142 +1,74 @@
 import Layout from "../components/layouts/Layout";
 import destinationHomeImage from "../assets/image/mountain-rill.jpg";
-import guideImage1 from "../assets/image/destination 3.jpg";
-import guideImage2 from "../assets/image/caribbean-beach.jpg";
-import guideImage3 from "../assets/image/great-barrier-reef.jpg";
+
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import SliderDefault from "@/components/ui/Carousel/SliderDefault";
+
 import destinationsData from "../data/destination.json";
 import { Link } from "react-router-dom";
 import bgFourthSectionImage from "../assets/image/bg-fourth-section.jpg";
 import SliderAutoPlay from "@/components/ui/Carousel/SliderAutoPlay";
+import AboutUsSection from "./AboutUsSection";
 
 const Home = () => {
   return (
     <Layout>
-      <FirstSection />
-      <SecondSection />
-      <ThirdSection />
-      <FourthSection />
-    </Layout>
-  );
-};
-
-const FirstSection = () => {
-  return (
-    <section
-      className="relative min-h-screen bg-cover bg-no-repeat bg-center flex items-center justify-center"
-      style={{
-        backgroundImage: `url('${destinationHomeImage}')`,
-      }}
-    >
-      <div className="absolute inset-0 bg-black opacity-35"></div>
-      <div className="absolute z-0 flex flex-col items-center text-center text-white text-opacity-80 p-2 ">
-        <motion.h3
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, x: [0, -10, 10, -10, 10, 0] }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-          className="text-2xl md:text-3xl font-medium  uppercase"
-        >
-          Wanderlust Archive
-        </motion.h3>
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, x: [0, 10, -10, 10, -10, 0] }}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-          className="text-4xl md:text-6xl font-bold py-6 uppercase"
-        >
-          Find your next adventure
-        </motion.h1>
-
-        <motion.p
-          initial={{ x: -700 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="md:text-lg xl:max-w-5xl"
-        >
-          Wanderlust Archive is your gateway to exploring the beauty of the
-          world and discovering stunning destinations. From iconic landmarks to
-          hidden gems, find inspiration for your next adventure.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <Button className="mt-6 p-6 text-2xl cursor-pointer uppercase opacity-70 hover:opacity-100">
-            Find Now
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const SecondSection = () => {
-  const refGuideText = useRef(null);
-  const isInViewGuide = useInView(refGuideText, { once: true });
-
-  const guideImageList = [guideImage1, guideImage2, guideImage3];
-
-  return (
-    <section className="w-full h-fit py-20 px-4 md:px-10 lg:px-28">
-      <motion.div
-        ref={refGuideText}
-        initial={{ opacity: 0, y: 200 }}
-        animate={{
-          opacity: isInViewGuide ? 1 : 0,
-          y: isInViewGuide ? 0 : 200,
+      <section
+        id="home"
+        className="relative min-h-screen bg-cover bg-no-repeat bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url('${destinationHomeImage}')`,
         }}
-        transition={{ duration: 1 }}
-        className="flex flex-col justify-center items-center text-center gap-2"
       >
-        <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
-          we are
-        </h1>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl">
-          a guide to magical places
-        </h2>
-        <hr className="w-1/3 h-[0.1rem] bg-gradient-to-r my-2 from-orange-600 to-black" />
-        <p className="md:text-lg xl:max-w-5xl opacity-80">
-          Start your next adventure today! Wanderlust Archive helps you uncover
-          hidden gems and extraordinary destinations around the world. Whether
-          you’re seeking serene escapes or thrilling journeys, we guide you to
-          the places where unforgettable experiences await.
-        </p>
-      </motion.div>
+        <div className="absolute inset-0 bg-black opacity-35"></div>
+        <div className="absolute z-0 flex flex-col items-center text-center text-white text-opacity-80 p-2 ">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, x: [0, -10, 10, -10, 10, 0] }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+            className="text-2xl md:text-3xl font-medium  uppercase"
+          >
+            Wanderlust Archive
+          </motion.h3>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, x: [0, 10, -10, 10, -10, 0] }}
+            transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold py-6 uppercase"
+          >
+            Find your next adventure
+          </motion.h1>
 
-      <div className="overflow-hidden">
-        <SliderDefault>
-          {guideImageList.map((image, index) => (
-            <div
-              key={index}
-              aria-hidden
-              className="relative flex items-center justify-center mt-6 active:border-none"
-            >
-              <motion.div
-                initial={{ x: -300 }}
-                animate={{ x: isInViewGuide ? 0 : -300 }}
-                transition={{ duration: 1.5 }}
-                className="absolute w-[90%] md:w-[80%] lg:w-[70%] mx-auto inset-0 -z-10 bg-cover bg-center scale-110 rounded-md opacity-25"
-                style={{ backgroundImage: `url('${image}')` }}
-              />
-              <motion.img
-                initial={{ x: 300 }}
-                animate={{ x: isInViewGuide ? 0 : 300 }}
-                transition={{ duration: 1.5 }}
-                src={image}
-                alt="Destination"
-                className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto rounded-md cursor-pointer"
-              />
-            </div>
-          ))}
-        </SliderDefault>
-      </div>
-    </section>
+          <motion.p
+            initial={{ x: -700 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="md:text-lg xl:max-w-5xl"
+          >
+            Wanderlust Archive is your gateway to exploring the beauty of the
+            world and discovering stunning destinations. From iconic landmarks
+            to hidden gems, find inspiration for your next adventure.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            <Link to="/destinations">
+              <Button className="mt-6 p-6 text-2xl cursor-pointer uppercase opacity-70 hover:opacity-100">
+                Find Now
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+      <AboutUsSection />
+      {/* <ThirdSection />
+      <FourthSection /> */}
+    </Layout>
   );
 };
 
@@ -171,7 +103,7 @@ const ThirdSection = () => {
         </p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
-        {destinationsData.slice(0, 6).map((destination, index) => {
+        {destinationsData.map((destination, index) => {
           return (
             <Link to={`/destinations/${destination.id}`} key={destination.id}>
               <motion.div
@@ -202,11 +134,6 @@ const ThirdSection = () => {
           );
         })}
       </div>
-      <div className="flex justify-center md:justify-end my-4">
-        <Link to={"/destinations"}>
-          <Button className="w-full md:w-fit text-lg">View More</Button>
-        </Link>
-      </div>
     </section>
   );
 };
@@ -234,7 +161,7 @@ const FourthSection = () => {
   const bestRecommendations = shuffledDestinations.slice(0, 6);
 
   return (
-    <section className="py-20">
+    <section className="py-20 mb-[60rem] md:mb-[50rem]">
       <div className="relative">
         <div
           className="absolute w-full min-h-fit bg-cover bg-no-repeat bg-center flex items-center justify-center pb-32"
@@ -242,7 +169,7 @@ const FourthSection = () => {
             backgroundImage: `url('${bgFourthSectionImage}')`,
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-40 rounded-md "></div>
+          <div className="absolute inset-0 bg-black opacity-65 rounded-md "></div>
           <div
             className="relative z-10 flex flex-col md:flex-row justify-center items-center gap-10 lg:gap-32 py-24"
             ref={refAchiveNumber}
@@ -301,28 +228,30 @@ const FourthSection = () => {
             transition={{ duration: 1 }}
             className="lg:hidden"
           >
-            <SliderAutoPlay>
-              {bestRecommendations.map((destination) => {
-                return (
-                  <div
-                    key={destination.id}
-                    className="flex flex-col items-center justify-center my-4 px-2"
-                  >
-                    <img
-                      src={destination.image}
-                      alt={destination.name}
-                      className="w-[90%] md:w-[80%] mx-auto rounded-md cursor-pointer"
-                    />
+            <div className="overflow-hidden">
+              <SliderAutoPlay>
+                {bestRecommendations.map((destination) => {
+                  return (
+                    <div
+                      key={destination.id}
+                      className="flex flex-col items-center justify-center my-4 px-2"
+                    >
+                      <img
+                        src={destination.image}
+                        alt={destination.name}
+                        className="w-[90%] md:w-[80%] mx-auto rounded-md cursor-pointer"
+                      />
 
-                    <Link to={`/destinations/${destination.id}`}>
-                      <p className="w-[90%] md:w-[80%] mx-auto text-lg text-center font-medium bg-slate-400 hover:bg-orange-600 hover:text-white transition-colors ease-linear duration-200 p-2 mt-2 rounded-md">
-                        {destination.name}
-                      </p>
-                    </Link>
-                  </div>
-                );
-              })}
-            </SliderAutoPlay>
+                      <Link to={`/destinations/${destination.id}`}>
+                        <p className="w-[90%] md:w-[80%] mx-auto text-lg text-center font-medium bg-slate-400 hover:bg-orange-600 hover:text-white transition-colors ease-linear duration-200 p-2 mt-2 rounded-md">
+                          {destination.name}
+                        </p>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </SliderAutoPlay>
+            </div>
           </motion.div>
 
           <div className="hidden lg:flex">

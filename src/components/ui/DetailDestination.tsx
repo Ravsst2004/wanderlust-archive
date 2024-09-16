@@ -3,6 +3,7 @@ import destinationsData from "../../data/destination.json";
 import Layout from "../layouts/Layout";
 import { motion, useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 
 type Destination = {
   id: number;
@@ -14,9 +15,7 @@ type Destination = {
 const DetailDestination = () => {
   const lastPathId = window.location.pathname.split("/").pop();
   const destinationId: number = parseInt(lastPathId!);
-  const [destination, setDestination] = useState<Destination | undefined>(
-    undefined
-  );
+  const [destination, setDestination] = useState<Destination | null>(null);
   const [newDestinationData, setNewDestinationData] = useState<Destination[]>(
     []
   );
@@ -34,34 +33,38 @@ const DetailDestination = () => {
       (des) => des.id === destinationIdNumber
     );
 
-    setDestination(destination);
+    setDestination(destination ? destination : null);
+
     setNewDestinationData(
       destinationsData.filter((des) => des.id !== destinationIdNumber)
     );
   }, [destinationId]);
+  console.log(destination);
+
+  if (destination === null) {
+    return <Error title="Destination Not Found" backText="Back to home" />;
+  }
 
   return (
     <Layout>
       <section className="max-w-7xl mx-auto mt-20" ref={refDestination}>
         <div className="flex flex-col justify-center items-center md:items-start md:flex-row gap-6 py-6 px-4">
-          {destination && (
-            <motion.div
-              initial={{ y: -500 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1 }}
-              className="md:w-[70%] gap-4"
-            >
-              <img
-                src={destination.image}
-                alt={destination.name}
-                className="rounded-md"
-              />
-              <h1 className="my-2 font-semibold text-2xl text-start">
-                {destination.name}
-              </h1>
-              <p className="text-justify">{destination.description}</p>
-            </motion.div>
-          )}
+          <motion.div
+            initial={{ y: -500 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1 }}
+            className="md:w-[70%] gap-4"
+          >
+            <img
+              src={destination.image}
+              alt={destination.name}
+              className="rounded-md"
+            />
+            <h1 className="my-2 font-semibold text-2xl text-start">
+              {destination.name}
+            </h1>
+            <p className="text-justify">{destination.description}</p>
+          </motion.div>
 
           <div className="md:w-[30%] grid grid-cols-2 md:grid-cols-1 gap-6">
             {newDestinationData.slice(0, 6).map((destination, index) => (

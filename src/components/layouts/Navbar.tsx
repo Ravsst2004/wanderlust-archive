@@ -7,15 +7,12 @@ import { Link } from "react-router-dom";
 
 interface LinkMenuItem {
   name: string;
-  link: string;
+  idLink: string;
 }
 
 const Navbar = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const currentPath = window.location.pathname;
-  const lastPath = currentPath.split("/").pop();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,30 +25,27 @@ const Navbar = () => {
   const linkMenu: LinkMenuItem[] = [
     {
       name: "Home",
-      link: "/",
+      idLink: "home",
     },
     {
       name: "About Us",
-      link: "/about",
+      idLink: "about-us",
     },
     {
       name: "Destinations",
-      link: "/destinations",
+      idLink: "destinations",
     },
     {
-      name: "Contact Us",
-      link: "/contact",
+      name: "Guide Book",
+      idLink: "guide-book",
     },
   ];
-  const blockLink = ["/destinations", `/destinations/${lastPath}`];
 
   return (
     <>
       <nav
         className={`w-full fixed z-20 flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 xl:px-40 transition-colors ease-in duration-300 ${
-          isScrolled || blockLink.includes(currentPath)
-            ? "bg-white"
-            : "bg-white md:bg-transparent"
+          isScrolled ? "bg-white" : "bg-white md:bg-transparent"
         }`}
       >
         <div className="flex items-center gap-2">
@@ -63,9 +57,7 @@ const Navbar = () => {
           <Link to="/">
             <h1
               className={`text-base md:text-xl lg:text-2xl ${
-                isScrolled || blockLink.includes(currentPath)
-                  ? "text-black"
-                  : "md:text-white"
+                isScrolled ? "text-black" : "md:text-white"
               }`}
             >
               Wanderlust Archive
@@ -80,16 +72,16 @@ const Navbar = () => {
             <IoMdMenu />
           </div>
 
-          <DesktopMenu
-            linkMenu={linkMenu}
-            isScrolled={isScrolled}
-            blockLink={blockLink}
-          />
+          <DesktopMenu linkMenu={linkMenu} isScrolled={isScrolled} />
         </div>
       </nav>
       <div className="border-b-2"></div>
 
-      <MobileMenu linkMenu={linkMenu} isOpen={menuIsOpen} />
+      <MobileMenu
+        linkMenu={linkMenu}
+        isOpen={menuIsOpen}
+        setMenuIsOpen={setMenuIsOpen}
+      />
     </>
   );
 };
