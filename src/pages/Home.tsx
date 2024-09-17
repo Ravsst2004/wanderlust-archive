@@ -96,7 +96,7 @@ const Home = () => {
 
       <DestinationSection />
 
-      <section ref={refGuideBook}>
+      <section ref={refGuideBook} id="guide-book">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: inViewGuideBook ? 1 : 0 }}
