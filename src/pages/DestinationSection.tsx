@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import destinationsData from "../data/destination.json";
 import SliderAutoPlay from "@/components/ui/Carousel/SliderAutoPlay";
-import bgFourthSectionImage from "../assets/image/bg-fourth-section.jpg";
+import bgFourthSectionImage from "../../public/image/bg-fourth-section.jpg";
 
 const DestinationSection = () => {
   const refDestination = useRef(null);

@@ -1,10 +1,10 @@
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import guideImage1 from "../assets/image/destination 3.jpg";
-import guideImage2 from "../assets/image/caribbean-beach.jpg";
-import guideImage3 from "../assets/image/great-barrier-reef.jpg";
-import dreamDestinationImage from "../assets/image/desert-dunes.jpg";
-import freeToExploreImage from "../assets/image/grand-canyon.jpg";
+import guideImage1 from "../../public/image/destination 3.jpg";
+import guideImage2 from "../../public/image/caribbean-beach.jpg";
+import guideImage3 from "../../public/image/great-barrier-reef.jpg";
+import dreamDestinationImage from "../../public/image/desert-dunes.jpg";
+import freeToExploreImage from "../../public/image/grand-canyon.jpg";
 import SliderDefault from "@/components/ui/Carousel/SliderDefault";
 import { motion } from "framer-motion";
 
@@ -23,7 +23,7 @@ const AboutUsSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.8 },
+      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.4 },
     },
   };
 
@@ -32,7 +32,7 @@ const AboutUsSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.8 },
+      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.4 },
     },
   };
 

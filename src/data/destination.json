@@ -2,109 +2,109 @@
   {
     "id": 1,
     "name": "African Savanna",
-    "image": "/src/assets/image/african-savanna.jpg",
+    "image": "/image/african-savanna.jpg",
     "description": "Immerse yourself in the vast and awe-inspiring African Savanna, a region renowned for its expansive plains and diverse wildlife. Here, you can witness the dramatic Great Migration, where millions of wildebeests, zebras, and gazelles traverse the landscape in search of fresh grazing grounds. The savanna's stunning sunsets and panoramic vistas offer an unparalleled experience of nature in its most unspoiled state. Explore the rich ecosystem of predators and prey, and gain insights into the delicate balance of this remarkable environment."
   },
   {
     "id": 2,
     "name": "Amazon River",
-    "image": "/src/assets/image/amazon-river.jpg",
+    "image": "/image/amazon-river.jpg",
     "description": "Embark on an unforgettable journey through the Amazon River, the longest river in the world, which winds its way through the heart of the world's largest tropical rainforest. Navigate its intricate network of waterways, where vibrant wildlife, including jaguars, monkeys, and colorful birds, thrives amid dense vegetation. Experience the richness of the rainforest's biodiversity, with its exotic plant life and rare species. Along the way, engage with local communities and discover their traditions and lifestyles, deeply intertwined with the river’s ecosystem."
   },
   {
     "id": 3,
     "name": "Caribbean Beach",
-    "image": "/src/assets/image/caribbean-beach.jpg",
+    "image": "/image/caribbean-beach.jpg",
     "description": "Relax on the idyllic Caribbean beaches, where the crystal-clear turquoise waters meet pristine white sand shores. The tranquil atmosphere is perfect for sunbathing, swimming, and indulging in a variety of water sports, including snorkeling and diving. Discover vibrant coral reefs teeming with marine life or simply enjoy the soothing sound of the waves. The Caribbean’s warm, tropical climate ensures a perfect getaway for anyone seeking both relaxation and adventure amidst stunning natural beauty."
   },
   {
     "id": 4,
     "name": "Desert Dunes",
-    "image": "/src/assets/image/desert-dunes.jpg",
+    "image": "/image/desert-dunes.jpg",
     "description": "Discover the mesmerizing landscape of desert dunes, where the golden sands stretch out endlessly under a scorching sun. Explore the serene and majestic beauty of rolling dunes, shaped by the wind into striking patterns and formations. The desert's vastness offers a profound sense of isolation and tranquility, interrupted only by the occasional sight of resilient wildlife and hardy flora. Experience the unique challenge of traversing this arid landscape, and witness breathtaking sunsets and star-studded night skies."
   },
   {
     "id": 5,
     "name": "Forest Waterfall",
-    "image": "/src/assets/image/forest-waterfall.jpg",
+    "image": "/image/forest-waterfall.jpg",
     "description": "Experience the enchanting beauty of forest waterfalls, hidden within lush green forests that seem to come alive with the sound of cascading water. The sight of a waterfall plunging into a tranquil pool surrounded by dense foliage creates a serene and magical atmosphere. Explore hiking trails that lead to these natural wonders, and take in the refreshing mist that dances in the air. The forest’s vibrant ecosystem, complete with diverse plant and animal life, adds to the tranquility and allure of these secluded spots."
   },
   {
     "id": 6,
     "name": "Grand Canyon",
-    "image": "/src/assets/image/grand-canyon.jpg",
+    "image": "/image/grand-canyon.jpg",
     "description": "Marvel at the grandeur of the Grand Canyon, one of nature's most stunning geological formations, carved over millions of years by the Colorado River. The immense scale and intricate layers of the canyon reveal a captivating geological history, offering spectacular views from its numerous vantage points. Explore its diverse landscapes, from rocky cliffs and expansive plateaus to lush river valleys. Whether hiking along its rim or taking a thrilling helicopter tour, the Grand Canyon provides an awe-inspiring experience of natural beauty and geological wonder."
   },
   {
     "id": 7,
     "name": "Great Barrier Reef",
-    "image": "/src/assets/image/great-barrier-reef.jpg",
+    "image": "/image/great-barrier-reef.jpg",
     "description": "Dive into the vibrant underwater world of the Great Barrier Reef, the largest coral reef system on Earth, stretching over 2,300 kilometers. Discover a kaleidoscope of colors as you explore its diverse coral formations and abundant marine life, including sea turtles, reef sharks, and a myriad of tropical fish. The reef's crystal-clear waters offer unparalleled visibility for snorkeling and scuba diving, allowing you to immerse yourself in one of the planet’s most extraordinary marine environments. Experience the reef’s fragile beauty and learn about the conservation efforts aimed at preserving this natural treasure."
   },
   {
     "id": 8,
     "name": "Japanese Temple",
-    "image": "/src/assets/image/japanese-temple.jpg",
+    "image": "/image/japanese-temple.jpg",
     "description": "Step into the serene world of ancient Japanese temples, where centuries-old architecture and tranquil gardens create a peaceful retreat. These temples, with their intricate wooden structures and ornate decorations, provide a window into Japan's rich cultural and spiritual heritage. Wander through meticulously maintained gardens featuring traditional koi ponds, bonsai trees, and stone lanterns. Experience the calming rituals and ceremonies that are integral to Japanese spirituality and reflect on the deep sense of harmony and balance that these sacred spaces embody."
   },
   {
     "id": 9,
     "name": "Kerala Backwaters",
-    "image": "/src/assets/image/kerala-backwaters.jpg",
+    "image": "/image/kerala-backwaters.jpg",
     "description": "Sail through the tranquil backwaters of Kerala, a network of interconnected canals, rivers, and lakes set against a backdrop of lush tropical landscapes. Experience the serene beauty of this region from the comfort of a traditional houseboat, gliding past verdant rice paddies, quaint villages, and exotic wildlife. The backwaters offer a unique glimpse into the local way of life, with opportunities to see traditional fishing techniques and enjoy local cuisine. The peaceful surroundings and scenic vistas make for an unforgettable and relaxing journey through one of India's most enchanting regions."
   },
   {
     "id": 10,
     "name": "Machu Picchu",
-    "image": "/src/assets/image/machu-picchu.jpg",
+    "image": "/image/machu-picchu.jpg",
     "description": "Journey to Machu Picchu, the iconic Incan city set high in the Andes Mountains, shrouded in mist and mystery. Explore the well-preserved ruins of this ancient civilization, including impressive stone structures and terraced fields. The panoramic views of the surrounding mountains and valleys add to the allure of this UNESCO World Heritage site. Engage in guided tours to learn about the historical and cultural significance of Machu Picchu, and experience the wonder of this architectural marvel that remains one of the most sought-after destinations in the world."
   },
   {
     "id": 11,
     "name": "Majestic Mountains",
-    "image": "/src/assets/image/majestic-mountains.jpg",
+    "image": "/image/majestic-mountains.jpg",
     "description": "Experience the awe-inspiring splendor of majestic mountain ranges, where towering peaks rise dramatically against the sky. Hike through rugged terrains and expansive alpine meadows, and take in the breathtaking views from various vantage points. The mountains offer diverse experiences, from challenging climbs and exhilarating ski resorts to tranquil spots for reflection and relaxation. The combination of majestic landscapes and pristine natural environments provides an unforgettable adventure for nature enthusiasts and outdoor adventurers alike."
   },
   {
     "id": 12,
     "name": "Northern Lights",
-    "image": "/src/assets/image/northern-lights.jpg",
+    "image": "/image/northern-lights.jpg",
     "description": "Witness the spectacular Northern Lights, or Aurora Borealis, a natural light display that illuminates the Arctic skies with vibrant colors. The ethereal dance of green, pink, and violet lights against the dark polar night creates a mesmerizing spectacle. Travel to the best viewing spots in countries like Norway, Iceland, or Canada, where the clear, cold nights and minimal light pollution offer optimal conditions for observing this celestial phenomenon. The Northern Lights provide a magical and unforgettable experience, embodying the beauty and mystery of the natural world."
   },
   {
     "id": 13,
     "name": "Parisian Streets",
-    "image": "/src/assets/image/parisian-streets.jpg",
+    "image": "/image/parisian-streets.jpg",
     "description": "Stroll through the enchanting streets of Paris, a city renowned for its romantic ambiance and historic charm. Explore iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum, while wandering through charming neighborhoods like Le Marais and Montmartre. Enjoy the city's vibrant café culture, where you can savor exquisite pastries and coffee, and experience the blend of classic elegance and modern vibrancy that defines Paris. The city's rich history, artistic heritage, and culinary delights make it a captivating destination for any traveler."
   },
   {
     "id": 14,
     "name": "Rainforest",
-    "image": "/src/assets/image/rainforest.jpg",
+    "image": "/image/rainforest.jpg",
     "description": "Immerse yourself in the lush, verdant world of tropical rainforests, where the dense canopy teems with diverse wildlife and exotic plant species. Experience the vibrant ecosystem of these rainforests, which includes colorful birds, elusive mammals, and intricate insect life. Trek through winding trails, cross hanging bridges, and discover hidden waterfalls in this thriving natural habitat. The rainforest's unique biodiversity and ecological significance offer an exciting and immersive adventure into one of the planet’s most vital and enchanting environments."
   },
   {
     "id": 15,
     "name": "Ruins",
-    "image": "/src/assets/image/ruins.jpg",
+    "image": "/image/ruins.jpg",
     "description": "Explore the ancient ruins of bygone civilizations, where remnants of historical grandeur and mystery await discovery. Wander through the crumbling walls of once-great cities and temples, uncovering the architectural marvels and historical narratives that define these sites. From the majestic temples of Greece and Rome to the lost cities of the Maya and Aztecs, these ruins offer a glimpse into the cultural and historical achievements of ancient peoples. Each site tells its own story, providing a fascinating and reflective experience for history enthusiasts and curious travelers."
   },
   {
     "id": 16,
     "name": "Serene Coastal",
-    "image": "/src/assets/image/serene-coastal.jpg",
+    "image": "/image/serene-coastal.jpg",
     "description": "Relax by the serene coastal landscapes, where gentle waves lap against pristine beaches, and the horizon stretches out into the vast ocean. Enjoy the calm and tranquil environment, perfect for unwinding and reconnecting with nature. Coastal destinations offer opportunities for leisurely walks along the shore, water activities such as kayaking and paddleboarding, and breathtaking sunset views. The peaceful ambiance of these coastal settings provides a perfect escape from the hustle and bustle of everyday life, allowing you to enjoy the natural beauty and serenity of the ocean."
   },
   {
     "id": 17,
     "name": "Taj Mahal",
-    "image": "/src/assets/image/taj-mahal.jpg",
+    "image": "/image/taj-mahal.jpg",
     "description": "Admire the Taj Mahal, a masterpiece of Mughal architecture and a symbol of eternal love. This stunning white marble mausoleum, set amidst beautifully landscaped gardens, is renowned for its intricate carvings and exquisite craftsmanship. Explore the surrounding complex, including the grand entrance gates and the serene reflecting pool, which enhance the monument's beauty. As one of the most iconic landmarks in the world, the Taj Mahal offers a profound experience of cultural and architectural heritage, reflecting the splendor and romance of its historical significance."
   },
   {
     "id": 18,
     "name": "Venetian Canals",
-    "image": "/src/assets/image/venetian-canals.jpg",
+    "image": "/image/venetian-canals.jpg",
     "description": "Glide through the picturesque Venetian canals, where historic architecture and charming waterways create a unique and enchanting experience. Navigate the narrow canals by gondola or water bus, passing by centuries-old buildings and iconic landmarks such as St. Mark's Basilica and the Rialto Bridge. The serene and romantic ambiance of Venice, with its winding alleys and hidden squares, offers a captivating exploration of the city's rich cultural and historical tapestry. The Venetian Canals provide a distinctive and memorable way to experience the beauty and charm of one of the world's most beloved cities."
   }
 ]
