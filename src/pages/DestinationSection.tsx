@@ -33,7 +33,7 @@ const DestinationSection = () => {
 
   return (
     <>
-      <section className="pt-40 px-4 md:px-10 lg:px-28" ref={refDestination}>
+      <section id="destination" className="pt-40 px-4 md:px-10 lg:px-28" ref={refDestination}>
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           animate={{
