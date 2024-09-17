@@ -1,6 +1,6 @@
 import Layout from "../components/layouts/Layout";
 import destinationHomeImage from "../../public/image/mountain-rill.jpg";
-import blogImage1 from "../../public/image/great-barrier-reef.jpg";
+import blogImage1 from "../../public/image/amazon-river.jpg";
 import blogImage2 from "../../public/image/great-barrier-reef.jpg";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
