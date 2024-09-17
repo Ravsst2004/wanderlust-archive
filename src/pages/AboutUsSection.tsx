@@ -97,7 +97,6 @@ const AboutUsSection = () => {
           </div>
         </section>
 
-        {/* TODO: Style this until it responsive */}
         <section
           className="pt-16 md:pt-24 flex flex-col xl:flex-row justify-center gap-4 xl:gap-40"
           ref={refSecondSection}

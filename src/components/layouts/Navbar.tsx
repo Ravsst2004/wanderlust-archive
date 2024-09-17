@@ -8,11 +8,22 @@ import { Link } from "react-router-dom";
 interface LinkMenuItem {
   name: string;
   idLink: string;
+  link?: string;
 }
 
 const Navbar = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const currentUrl = window.location.pathname;
+  const lastPath = currentUrl.split("/").pop();
+
+  const notInPage = `/destinations/${lastPath}`;
+
+  const scrolledClass =
+    isScrolled || notInPage.includes(currentUrl)
+      ? "text-black"
+      : "md:text-white";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +37,7 @@ const Navbar = () => {
     {
       name: "Home",
       idLink: "home",
+      link: "/",
     },
     {
       name: "About Us",
@@ -57,7 +69,7 @@ const Navbar = () => {
           <Link to="/">
             <h1
               className={`text-base md:text-xl lg:text-2xl ${
-                isScrolled ? "text-black" : "md:text-white"
+                isScrolled ? "text-black" : { scrolledClass }
               }`}
             >
               Wanderlust Archive

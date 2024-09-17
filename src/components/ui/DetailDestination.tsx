@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import destinationsData from "../../data/destination.json";
 import Layout from "../layouts/Layout";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Error from "./Error";
 
@@ -20,7 +20,6 @@ const DetailDestination = () => {
     []
   );
   const refDestination = useRef(null);
-  const isInViewDestination = useInView(refDestination);
   const navigate = useNavigate();
 
   const handleNavigate = (destinationId: number) => {
@@ -39,7 +38,6 @@ const DetailDestination = () => {
       destinationsData.filter((des) => des.id !== destinationIdNumber)
     );
   }, [destinationId]);
-  console.log(destination);
 
   if (destination === null) {
     return <Error title="Destination Not Found" backText="Back to home" />;
@@ -76,7 +74,7 @@ const DetailDestination = () => {
                   initial={{ opacity: 0, x: index % 2 === 1 ? 200 : -200 }}
                   animate={{
                     opacity: 1,
-                    x: isInViewDestination ? 0 : index % 2 === 1 ? 200 : -200,
+                    x: index % 2 === 1 ? 0 : 0,
                   }}
                   transition={{ duration: 1 }}
                   className="relative group cursor-pointer"
