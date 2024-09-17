@@ -10,9 +10,31 @@ import { motion } from "framer-motion";
 
 const AboutUsSection = () => {
   const refGuideText = useRef(null);
+  const refSecondSection = useRef(null);
+  const refThirdSection = useRef(null);
   const isInViewGuide = useInView(refGuideText, { once: true });
+  const isInViewSecondSection = useInView(refSecondSection, { once: true });
+  const isInViewThirdSection = useInView(refThirdSection, { once: true });
 
   const guideImageList = [guideImage1, guideImage2, guideImage3];
+
+  const varianstAnimationText = {
+    hidden: { opacity: 0, y: 200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.8 },
+    },
+  };
+
+  const varianstAnimationImage = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, type: "spring", stiffness: 100, delay: 0.8 },
+    },
+  };
 
   return (
     <>
@@ -21,7 +43,6 @@ const AboutUsSection = () => {
         id="about-us"
       >
         <section>
-          {" "}
           <motion.div
             ref={refGuideText}
             initial={{ opacity: 0, y: 200 }}
@@ -76,9 +97,17 @@ const AboutUsSection = () => {
           </div>
         </section>
 
-        <section className="pt-16">
-          <div>
-            <h1 className="text-orange-500 text-xl md:text-2xl font-medium">
+        {/* TODO: Style this until it responsive */}
+        <section
+          className="pt-16 md:pt-24 flex flex-col xl:flex-row justify-center gap-4 xl:gap-40"
+          ref={refSecondSection}
+        >
+          <motion.div
+            initial="hidden"
+            animate={isInViewSecondSection && "visible"}
+            variants={varianstAnimationText}
+          >
+            <h1 className="text-orange-500 text-xl md:text-3xl font-medium">
               Find your dream destination
             </h1>
             <p className="text-sm md:text-lg xl:max-w-5xl text-justify ">
@@ -92,35 +121,50 @@ const AboutUsSection = () => {
               with your dreams and start planning your next unforgettable
               adventure.
             </p>
-          </div>
-          <img
+          </motion.div>
+          <motion.img
+            initial="hidden"
+            animate={isInViewSecondSection && "visible"}
+            variants={varianstAnimationImage}
             src={dreamDestinationImage}
             alt="Dessert Dunes"
-            className="rounded pt-4"
+            className="rounded pt-4 md:pt-0 xl:w-[40%] object-cover"
           />
         </section>
 
-        <section className="pt-16">
-          <h1 className="text-orange-500 text-xl font-medium text-end">
-            Free to Explore
-          </h1>
-          <p className="text-sm md:text-lg xl:max-w-5xl text-justify ">
-            Wanderlust Archive is an exclusive platform designed for those who
-            dream of exploring the world’s most captivating destinations. Our
-            collection spans a wide array of breathtaking locations, from hidden
-            natural wonders to iconic travel hotspots. Users can immerse
-            themselves in the beauty of these destinations through carefully
-            curated visuals and detailed descriptions that transport them to the
-            heart of each place. Wanderlust Archive is crafted to ignite the
-            spirit of adventure, offering inspiration and a window into the
-            possibilities of travel. Whether you're dreaming of a remote island
-            getaway or an epic mountain expedition, the journey begins here as
-            you explore the world's most alluring places.
-          </p>
-          <img
+        <section
+          className="pt-16 md:pt-24 flex flex-col xl:flex-row-reverse justify-center gap-4 xl:gap-32"
+          ref={refThirdSection}
+        >
+          <motion.div
+            initial="hidden"
+            animate={isInViewThirdSection && "visible"}
+            variants={varianstAnimationText}
+          >
+            <h1 className="text-orange-500 text-xl md:text-3xl font-medium text-end">
+              Free to Explore
+            </h1>
+            <p className="text-sm md:text-lg xl:max-w-5xl text-justify ">
+              Wanderlust Archive is an exclusive platform designed for those who
+              dream of exploring the world’s most captivating destinations. Our
+              collection spans a wide array of breathtaking locations, from
+              hidden natural wonders to iconic travel hotspots. Users can
+              immerse themselves in the beauty of these destinations through
+              carefully curated visuals and detailed descriptions that transport
+              them to the heart of each place. Wanderlust Archive is crafted to
+              ignite the spirit of adventure, offering inspiration and a window
+              into the possibilities of travel. Whether you're dreaming of a
+              remote island getaway or an epic mountain expedition, the journey
+              begins here as you explore the world's most alluring places.
+            </p>
+          </motion.div>
+          <motion.img
+            initial="hidden"
+            animate={isInViewThirdSection && "visible"}
+            variants={varianstAnimationImage}
             src={freeToExploreImage}
             alt="Grand Canyon"
-            className="rounded pt-4"
+            className="rounded pt-4 md:pt-0 xl:w-[40%] object-cover"
           />
         </section>
       </section>
