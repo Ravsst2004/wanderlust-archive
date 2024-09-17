@@ -1,5 +1,5 @@
 import { IoMdMenu } from "react-icons/io";
-import logo from "../../assets/Wanderlust Archive.png";
+import logo from "../../../public/image/Wanderlust Archive.png";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
 import DesktopMenu from "./DesktopMenu";
