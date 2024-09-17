@@ -66,7 +66,7 @@ const Navbar = () => {
               className={`text-base md:text-xl lg:text-2xl ${
                 isScrolled || InPage.includes(currentUrl)
                   ? "text-black"
-                  : "text-white"
+                  : "text-black md:text-white"
               }`}
             >
               Wanderlust Archive
@@ -76,7 +76,7 @@ const Navbar = () => {
         <div className="text-2xl cursor-pointer">
           <div
             onClick={() => setMenuIsOpen(!menuIsOpen)}
-            className="border-2 p-1 rounded border-white lg:hidden"
+            className="border-2 p-1 rounded border-white md:text-white lg:hidden"
           >
             <IoMdMenu />
           </div>
