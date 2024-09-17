@@ -18,12 +18,7 @@ const Navbar = () => {
   const currentUrl = window.location.pathname;
   const lastPath = currentUrl.split("/").pop();
 
-  const notInPage = `/destinations/${lastPath}`;
-
-  const scrolledClass =
-    isScrolled || notInPage.includes(currentUrl)
-      ? "text-black"
-      : "md:text-white";
+  const InPage = [`/destinations/${lastPath}`];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +64,9 @@ const Navbar = () => {
           <Link to="/">
             <h1
               className={`text-base md:text-xl lg:text-2xl ${
-                isScrolled ? "text-black" : { scrolledClass }
+                isScrolled || InPage.includes(currentUrl)
+                  ? "text-black"
+                  : "text-white"
               }`}
             >
               Wanderlust Archive

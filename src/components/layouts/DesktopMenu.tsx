@@ -9,10 +9,10 @@ const DesktopMenu: React.FC<MobileMenuProps> = ({ linkMenu, isScrolled }) => {
   const currentUrl = window.location.pathname;
   const lastPath = currentUrl.split("/").pop();
 
-  const notInPage = `/destinations/${lastPath}`;
+  const InPage = [`/destinations/${lastPath}`];
 
   const scrolledClass =
-    isScrolled || notInPage.includes(currentUrl)
+    isScrolled || InPage.includes(currentUrl)
       ? "text-black border-black"
       : "md:text-white";
 

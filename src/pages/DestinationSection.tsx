@@ -33,14 +33,14 @@ const DestinationSection = () => {
 
   return (
     <>
-      <section className="py-40 px-4 md:px-10 lg:px-28" ref={refDestination}>
+      <section className="pt-40 px-4 md:px-10 lg:px-28" ref={refDestination}>
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           animate={{
             opacity: isInViewDestination ? 1 : 0,
             y: isInViewDestination ? 0 : 200,
           }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
           className="flex flex-col justify-center items-center text-center gap-2"
         >
           <h1 className="text-xl md:text-2xl  font-light tracking-[0.5rem] text-orange-600">
@@ -92,7 +92,7 @@ const DestinationSection = () => {
         </div>
       </section>
 
-      <section className="py-20 mb-[60rem] md:mb-[50rem]">
+      <section className="pt-40 mb-[60rem] md:mb-[50rem]">
         <div className="relative">
           <div
             className="absolute w-full min-h-fit bg-cover bg-no-repeat bg-center flex items-center justify-center pb-32"
